@@ -1,0 +1,89 @@
+Первое ДЗ 
+Linux terminal (GitBash) commands
+
+1) Посмотреть где я === pwd
+
+2) Создать папку === mkdir foldername
+
+3) Зайти в папку === cd foldername
+
+4) Создать 3 папки === mkdir f1 f2 f3
+
+5) Зайти в любую папку === cd f1
+
+6) Создать 5 файлов (3 txt, 2 json) === touch file1.txt file2.txt file3.txt file4.json file5.json
+
+7) Создать 3 папки === mkdir xxx yyy zzz
+
+8. Вывести список содержимого папки === ls -la
+
+9) + Открыть любой txt файл === vim file2.txt
+
+10) + написать туда что-нибудь, любой текст === i(переход в режим редактирования) текст
+
+11) + сохранить и выйти === клавиша esc(выход из режима редактирования) :wq
+
+12) Выйти из папки на уровень выше === cd ..
+
+—
+13) переместить любые 2 файла, которые вы создали, в любую другую папку === mv f1/file3.txt f1/file4.json f2
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку === cp f1/file2.txt f1/file5.json f3
+
+15) Найти файл по имени === find -name file2.txt
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает === tail -f f1/file2.txt | grep poipoipoi
+
+17) вывести несколько первых строк из текстового файла === head -n 3 f1/file2.txt
+
+18) вывести несколько последних строк из текстового файла === tail -n 4 f1/file2.txt
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает === history > hist.txt | less hist.txt === (выход q)      
+
+20) вывести дату и время === date
+
+Примечание: команды выполнялись последовательно с 1 по 20 единым кейсом, пути указаны относительные.
+==========
+
+Задание *
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5005/terminal-hw-request
+
+
+
+$ curl http://162.55.220.72:5005/terminal-hw-request
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   237  100   237    0     0   1916      0 --:--:-- --:--:-- --:--:--  1926{"Intro":"Hello!!
+This is your the first response from server","Tasks":{"Task_1":"Send the next URL in terminal: 
+http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)",
+"result":["Your_String","Your_number"]}}
+
+
+
+$ curl "http://162.55.220.72:5005/get_method?name=Natalya&age=41"
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    17  100    17    0     0    142      0 --:--:-- --:--:-- --:--:--   144["Natalya","41"]
+
+
+
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+
+vim myscript
+===============
+#!/bin/bash
+cd foldername
+mkdir f1 f2 f3
+cd f1
+touch file1.txt file2.txt file3.txt file4.json file5.json
+mkdir xxx yyy zzz
+ls -la
+mv /c/Users/Admin/Desktop/foldername/f1/file3.txt /c/Users/Admin/Desktop/foldername/f1/file4.json /c/Users/Admin/Desktop/foldername/f2
+================
+chmod +x ./myscript
+
+./myscript
